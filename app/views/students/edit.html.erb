@@ -1,0 +1,10 @@
+<h5>Update Student - <%= @student.last_name + ', ' + @student.first_name %></h5>
+
+<%= form_for @student, url: {action: "update"} do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :phone %>
+  <%= f.text_field :email %>
+  <%= f.text_field :average %>
+  <%= f.submit "Update", class: "waves-effect waves-light btn" %>
+<% end %>
