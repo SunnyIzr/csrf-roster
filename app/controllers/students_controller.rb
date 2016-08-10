@@ -8,11 +8,13 @@ class StudentsController < ApplicationController
   end
   
   def update
-    @student = Student.find(params[:id])
-    if @student.update(student_params)
-      redirect_to students_path
-    else
-      render json: @student.errors, status: :unprocessable_entity
+    if current_user.email == 'admin@gmail.com'
+      @student = Student.find(params[:id])
+      if @student.update(student_params)
+        redirect_to students_path
+      else
+        render json: @student.errors, status: :unprocessable_entity
+      end
     end
   end
   
